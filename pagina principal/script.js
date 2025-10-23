@@ -1,4 +1,3 @@
-
 let produtos
 
 window.onload = function(){
@@ -20,12 +19,11 @@ window.onload = function(){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-    //busca dos produtos e armazenamento dos dados na variavel global
+
     fetch('../dados/mock.json')
         .then((response) => response.json())
         .then((data) => {
             produtos = data
-            // console.log(data)
             
             const produtosContainer = document.getElementById('produtos-container')
             produtos.forEach((produto, index) =>{
@@ -52,18 +50,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
                 const cardText = document.createElement('p')
                     cardText.className = 'card-text'
-                    cardText.textContent = 'Cv: ' + produto.preco.toFixed(2)
+                    cardText.textContent = 'Preço: $' + produto.preco.toFixed(2)
                 
-                const btnAdicionarAoCarrinho = document.createElement('a')
-                    btnAdicionarAoCarrinho.href = '#'
-                    btnAdicionarAoCarrinho.className = 'btn btn-outline-dark btn-sm btn-adicionar-ao-carrinho'
-                    btnAdicionarAoCarrinho.textContent = "Modificar"
-                    btnAdicionarAoCarrinho.setAttribute('data-indice', index)
+                const btnModificar = document.createElement('button');
+                    btnModificar.className = "btn btn-outline-dark btn-sm btn-modificar";
+                    btnModificar.textContent = "Modificar";
+                    btnModificar.setAttribute('data-indice', index);
+
+btnModificar.onclick = function() {
+    window.open('../montagens/index.html', '_blank');
+};
                 
-                //hierarquia de elemtos html
                 cardBody.appendChild(cardTitle)
                 cardBody.appendChild(cardText)
-                cardBody.appendChild(btnAdicionarAoCarrinho)
+                cardBody.appendChild(btnModificar) 
 
                 card.appendChild(imagem)
                 card.appendChild(cardBody)
@@ -81,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
             carrinho.push(produtoSelecionado)
             localStorage.setItem("carrinho", JSON.stringify(carrinho))
+
+            alert("Produto adicionado com sucesso")
         })
 
 })
