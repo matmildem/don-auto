@@ -3,108 +3,108 @@
         "id": 1,
         "descricao": "Camaro",
         "imagem": "../Dados/images/camaro.jpg",
-        "preco": 212890.0
+        "preco": 335
     },
     {
         "id": 2,
         "descricao": "Civic G10",
         "imagem": "../Dados/images/civic.png",
-        "preco": 209990.0
+        "preco": 173
     },
     {
         "id": 3,
         "descricao": "Golf GTI",
         "imagem": "../Dados/images/golf.jpg",
-        "preco": 299800.0
+        "preco": 261
     },
     {
         "id": 4,
         "descricao": "HB20",
         "imagem": "../Dados/images/hb20.webp",
-        "preco": 249990.0
+        "preco": 120
     },
     {
         "id": 5,
         "descricao": "Hilux",
         "imagem": "../Dados/images/hilux.webp",
-        "preco": 270100.0
+        "preco": 224
     },
     {
         "id": 6,
         "descricao": "Jetta GLI",
         "imagem": "../Dados/images/jetta.png",
-        "preco": 199990.0
+        "preco": 228
     },
     {
         "id": 7,
         "descricao": "BMW M3",
         "imagem": "../Dados/images/m3.webp",
-        "preco": 162490.0
+        "preco": 473
     },
     {
         "id": 8,
         "descricao": "Audi A3",
         "imagem": "../Dados/images/a3.png",
-        "preco": 130990.0
+        "preco": 204
     },
      {
         "id": 9,
         "descricao": "Corolla",
         "imagem": "../Dados/images/toyota.webp",
-        "preco": 112990.0
+        "preco": 169
      },
      {
         "id": 10,
         "descricao": "Dodge",
         "imagem": "../Dados/images/dodge.png",
-        "preco": 140790.0
+        "preco": 1025
          },
      {
         "id": 11,
         "descricao": "virtus",
         "imagem": "../Dados/images/virtus.webp",
-        "preco": 168890.0
+        "preco": 150
          },
      {
         "id": 12,
         "descricao": "BMW X4",
         "imagem": "../Dados/images/x4.webp",
-        "preco": 353290.0
+        "preco": 248
       },
      {
         "id": 13,
         "descricao": "Audi RS6",
         "imagem": "../Dados/images/rs6.png",
-        "preco": 141990.0
+        "preco": 600
          },
      {
         "id": 14,
         "descricao": "Onix",
         "imagem": "../Dados/images/onix.webp",
-        "preco": 109990.0
+        "preco": 115
          },
      {
         "id": 15,
         "descricao": "Porsche 911",
         "imagem": "../Dados/images/911.jpg",
-        "preco": 101210.0
+        "preco": 401
     },
      {
         "id": 16,
         "descricao": "Mercedes CLA250",
         "imagem": "../Dados/images/cla.webp",
-        "preco": 214990.0
+        "preco": 211
      },
       {
         "id": 17,
         "descricao": "Fusion",
         "imagem": "../Dados/images/fusion.avif",
-        "preco": 214990.0
+        "preco": 248
      },
       {
         "id": 18,
         "descricao": "Mustang",
         "imagem": "../Dados/images/must.png",
-        "preco": 214990.0
+        "preco": 507
      }
 ]

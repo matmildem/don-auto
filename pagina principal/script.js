@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
                 const cardText = document.createElement('p')
                     cardText.className = 'card-text'
-                    cardText.textContent = 'Preço: $' + produto.preco.toFixed(2)
+                    cardText.textContent = 'Cv: ' + produto.preco.toFixed(0)
                 
                 const btnModificar = document.createElement('button');
                     btnModificar.className = "btn btn-outline-dark btn-sm btn-modificar";
