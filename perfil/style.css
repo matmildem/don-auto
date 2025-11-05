@@ -96,7 +96,6 @@ nav a:hover{
         background-color: #dddddd82;
         width: 400px;
         height: 420px;
-        border-radius: 20px;
         box-shadow: #ff751f 0px 5px 100px;
         display: flex;
         align-items: center;
@@ -105,6 +104,7 @@ nav a:hover{
         padding: 20px;
         gap: 10px;
         text-align: center;
+        border-radius: 20px;
 }
 
 .card:hover{
@@ -114,13 +114,16 @@ nav a:hover{
 }
 
 .card img{
-    border-radius: 100%;
+    border-radius: 20px;
     background-color: white;
     padding: 20px;
+    max-width: 180px;
+    max-height: 130px;
+    min-width: 180px;
+    min-height: 130px;
 }
 
-
-#s4 {
+#s3 {
     min-height: 100vh;  
     background-color: #ff751f;
     display: flex;
@@ -195,3 +198,4 @@ footer img:hover{
     cursor: pointer;
     box-shadow:  rgba(255, 255, 255, 0.724) 0px 5px 100px;
 }
+
