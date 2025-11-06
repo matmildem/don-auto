@@ -1,13 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DA Modificações</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Montagem do Carro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+<body class="bg-light">
+
+  <div class="container py-4">
+    <button class="btn btn-outline-dark mb-3" onclick="window.location.href='../pagina principal/index.html'">
+      ← Voltar
+    </button>
+
+    <div class="card shadow p-3">
+      <div class="row align-items-center">
+        <!-- Imagem -->
+        <div class="col-md-5 text-center">
+          <img id="carro-imagem" class="img-fluid rounded" alt="Carro selecionado">
+        </div>
+
+        <!-- Infos e opções -->
+        <div class="col-md-7">
+          <h3 id="carro-nome" class="fw-bold mb-4"></h3>
+
+          <div class="mb-3">
+            <label for="selectCor" class="form-label fw-semibold">Selecione a cor:</label>
+            <select id="selectCor" class="form-select">
+              <option value="Preto">Preto</option>
+              <option value="Branco">Branco</option>
+              <option value="Vermelho">Vermelho</option>
+              <option value="Azul">Azul</option>
+              <option value="Prata">Verde</option>
+              <option value="Cinza">Cinza</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="selectMotor" class="form-label fw-semibold">Escolha o motor:</label>
+            <select id="selectMotor" class="form-select">
+              <option value="1.0">1.0 Flex</option>
+              <option value="1.6">1.6 Turbo</option>
+              <option value="2.0">2.0 Turbo</option>
+              <option value="V6">V6</option>
+              <option value="V8">V8</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="selectSuspensao" class="form-label fw-semibold">Tipo de suspensão:</label>
+            <select id="selectSuspensao" class="form-select">
+              <option value="Original">Original</option>
+              <option value="Rebaixada">Rebaixada</option>
+              <option value="Ajustável">Ajustável</option>
+              <option value="Off-Road">Off-Road</option>
+            </select>
+          </div>
+
+          <button id="btnSalvar" class="btn btn-primary">Ir para o carrinho</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    // 🧠 Ao carregar a página
+    window.onload = function () {
+      const carro = JSON.parse(localStorage.getItem("carroSelecionado"));
+      if (!carro) {
+        alert("Nenhum carro selecionado. Voltando à página anterior...");
+        window.location.href = "../produtos/index.html";
+        return;
+      }
+
+      // Mostra dados do carro
+      document.getElementById("carro-nome").innerText = carro.descricao;
+      document.getElementById("carro-imagem").src = carro.imagem;
+
+      // Botão salvar
+      document.getElementById("btnSalvar").onclick = function () {
+        const configuracao = {
+          descricao: carro.descricao,
+          imagem: carro.imagem,
+          cor: document.getElementById("selectCor").value,
+          motor: document.getElementById("selectMotor").value,
+          suspensao: document.getElementById("selectSuspensao").value
+        };
+
+        // Salva no localStorage
+        let configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
+        configuracoes.push(configuracao);
+        localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
+
+        alert(`✅ Configuração salva:
+Carro: ${configuracao.descricao}
+Cor: ${configuracao.cor}
+Motor: ${configuracao.motor}
+Suspensão: ${configuracao.suspensao}`);
+      };
+    };
+
+    
+  </script>
+</body>
+</html>

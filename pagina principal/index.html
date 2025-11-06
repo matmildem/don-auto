@@ -28,6 +28,40 @@
             <div id="produtos-container" class="row center"></div>
         </div>
 
+
+
+<!-- Modal Detalhes e Modificações -->
+<div class="modal fade" id="modalDetalhes" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Detalhes</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <!-- Coluna da imagem -->
+          <div class="col-md-5 text-center">
+            <img id="modalCarImage" src="" alt="Imagem do carro" class="img-fluid rounded shadow-sm">
+          </div>
+
+          <!-- Coluna dos detalhes -->
+          <div class="col-md-7">
+            <h4 id="modalCarName" class="fw-bold mb-3"></h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" id="btnSalvarAlteracoes">Modificar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <script src="script.js" ></script>
 </body>
 
