@@ -2,109 +2,109 @@
     {
         "id": 1,
         "descricao": "Camaro",
-        "imagem": "../Dados/images/camaro.jpg",
+        "imagem": "../Dados/images/camaro preto.jpg",
         "preco": 335
     },
     {
         "id": 2,
         "descricao": "Civic G10",
-        "imagem": "../Dados/images/civic.png",
+        "imagem": "../Dados/images/civic preto.png",
         "preco": 173
     },
     {
         "id": 3,
         "descricao": "Golf GTI",
-        "imagem": "../Dados/images/golf.jpg",
+        "imagem": "../Dados/images/golf preto.jpg",
         "preco": 261
     },
     {
         "id": 4,
         "descricao": "HB20",
-        "imagem": "../Dados/images/hb20.webp",
+        "imagem": "../Dados/images/hb20 preto.jpg",
         "preco": 120
     },
     {
         "id": 5,
         "descricao": "Hilux",
-        "imagem": "../Dados/images/hilux.webp",
+        "imagem": "../Dados/images/hilux preta.jpg",
         "preco": 224
     },
     {
         "id": 6,
         "descricao": "Jetta GLI",
-        "imagem": "../Dados/images/jetta.png",
+        "imagem": "../Dados/images/jetta preto.jpg",
         "preco": 228
     },
     {
         "id": 7,
         "descricao": "BMW M3",
-        "imagem": "../Dados/images/m3.webp",
+        "imagem": "../Dados/images/m3 preta.jpg",
         "preco": 473
     },
     {
         "id": 8,
         "descricao": "Audi A3",
-        "imagem": "../Dados/images/a3.png",
+        "imagem": "../Dados/images/a3 preto.png",
         "preco": 204
     },
      {
         "id": 9,
         "descricao": "Corolla",
-        "imagem": "../Dados/images/toyota.webp",
+        "imagem": "../Dados/images/corolla preto.jpg",
         "preco": 169
      },
      {
         "id": 10,
-        "descricao": "Dodge",
-        "imagem": "../Dados/images/dodge.png",
+        "descricao": "Dodge Challenger",
+        "imagem": "../Dados/images/dodge preto.jpg",
         "preco": 1025
          },
      {
         "id": 11,
         "descricao": "virtus",
-        "imagem": "../Dados/images/virtus.webp",
+        "imagem": "../Dados/images/virtus preto.jpg",
         "preco": 150
          },
      {
         "id": 12,
         "descricao": "BMW X4",
-        "imagem": "../Dados/images/x4.webp",
+        "imagem": "../Dados/images/x4 preta.jpg",
         "preco": 248
       },
      {
         "id": 13,
         "descricao": "Audi RS6",
-        "imagem": "../Dados/images/rs6.png",
+        "imagem": "../Dados/images/rs6 preto.jpg",
         "preco": 600
          },
      {
         "id": 14,
         "descricao": "Onix",
-        "imagem": "../Dados/images/onix.webp",
+        "imagem": "../Dados/images/onix preto.jpg",
         "preco": 115
          },
      {
         "id": 15,
         "descricao": "Porsche 911",
-        "imagem": "../Dados/images/911.jpg",
+        "imagem": "../Dados/images/911 preta.jpg",
         "preco": 401
     },
      {
         "id": 16,
         "descricao": "Mercedes CLA250",
-        "imagem": "../Dados/images/cla.webp",
+        "imagem": "../Dados/images/cla preta.jpg",
         "preco": 211
      },
       {
         "id": 17,
         "descricao": "Fusion",
-        "imagem": "../Dados/images/fusion.avif",
+        "imagem": "../Dados/images/fusion preto.jpg",
         "preco": 248
      },
       {
         "id": 18,
         "descricao": "Mustang",
-        "imagem": "../Dados/images/must.webp",
+        "imagem": "../Dados/images/mustang preto.jpg",
         "preco": 507
      }
 ]
