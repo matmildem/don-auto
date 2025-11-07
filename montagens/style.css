@@ -1,0 +1,13 @@
+#btnSalvar{
+    background-color: #ff751f;
+    border-color: #ff751f;
+}
+
+#btnSalvar:hover{
+    background-color: #ff4400;
+    border-color: #ff4400;
+}
+
+#bg-light{
+        background-color: black;
+    }
