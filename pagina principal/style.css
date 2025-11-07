@@ -70,3 +70,13 @@ h1, h2{
 .btn{
    font-weight: bolder;
 }
+
+.btn-primary{
+    background-color: #ff751f;
+    border-color: #ff751f;
+}
+
+.btn-primary:hover{
+    background-color: #ff4400;
+    border-color: #ff4400;
+}
