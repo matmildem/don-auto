@@ -6,6 +6,11 @@
   <title>DA Montagem</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Choices.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
   <link rel="stylesheet" href="./style.css">
 </head>
 <body class="bg-light">
@@ -26,29 +31,20 @@
         <div class="col-md-7">
           <h3 id="carro-nome" class="fw-bold mb-4"></h3>
 
+          <!-- Cor -->
           <div class="mb-3">
-            <label for="selectCor" class="form-label fw-semibold">Selecione a Cor:</label>
+            <label for="selectCor" class="form-label fw-semibold">Escolha a Cor:</label>
             <select id="selectCor" class="form-select">
               <option value="Preto">Preto</option>
               <option value="Branco">Branco</option>
               <option value="Vermelho">Vermelho</option>
               <option value="Azul">Azul</option>
-              <option value="Prata">Verde</option>
+              <option value="Verde">Verde</option>
               <option value="Cinza">Cinza</option>
             </select>
           </div>
 
-          <div class="mb-3">
-            <label for="selectMotor" class="form-label fw-semibold">Escolha o Motor:</label>
-            <select id="selectMotor" class="form-select">
-              <option value="1.0">1.0 Flex</option>
-              <option value="1.6">1.6 Turbo</option>
-              <option value="2.0">2.0 Turbo</option>
-              <option value="V6">V6</option>
-              <option value="V8">V8</option>
-            </select>
-          </div>
-
+          <!-- Suspensão -->
           <div class="mb-3">
             <label for="selectSuspensao" class="form-label fw-semibold">Tipo de Suspensão:</label>
             <select id="selectSuspensao" class="form-select">
@@ -59,72 +55,89 @@
             </select>
           </div>
 
-           <div class="mb-3">
-            <label for="selectbodykit" class="form-label fw-semibold">Tipo de BodyKit:</label>
-            <select id="selectbodykit" class="form-select">
+          <!-- Roda -->
+          <div class="mb-3">
+            <label for="selectRoda" class="form-label fw-semibold">Roda:</label>
+            <select id="selectRoda" class="form-select">
               <option value="Original">Original</option>
-              <option value="MP Concepts">MP Concepts</option>
-              <option value="M Performance">M Performance</option>
-              <option value="VO6">VO6</option>
-              <option value="Mansory">Mansory</option>
-              <option value="Brabus">Brabus</option>
-            </select>
-          </div>
-
-           <div class="mb-3">
-            <label for="selectroda" class="form-label fw-semibold">Tipo de Roda:</label>
-            <select id="selectroda" class="form-select">
-              <option value="Original">Original</option>
-              <option value="Blackred">Blackred</option>
+              <option value="Volk Racing">Volk Racing</option>
               <option value="Enkei">Enkei</option>
               <option value="BBS">BBS</option>
-               <option value="Off-Road">Off-Road</option>
+              <option value="Forgiato">Forgiato</option>
+              <option value="Rotiform">Rotiform</option>
             </select>
           </div>
 
+          <!-- BodyKit -->
           <div class="mb-3">
-            <label for="selectroda" class="form-label fw-semibold">Stage: </label>
-            <select id="selectroda" class="form-select">
+            <label for="selectBodykit" class="form-label fw-semibold">BodyKit:</label>
+            <select id="selectBodykit" class="form-select">
               <option value="Original">Original</option>
-              <option value="Stage 1">Stage 1</option>
-              <option value="Stage 2">Stage 2</option>
-              <option value="Stage 3">Stage 3</option>
+              <option value="Veilside">Veilside</option>
+              <option value="Rocket Bunny">Rocket Bunny</option>
+              <option value="Liberty Walk">Liberty Walk</option>
+              <option value="Mansory">Mansory</option>
+              <option value="Varis">Varis</option>
             </select>
           </div>
 
+          <!-- Desempenho -->
           <div class="mb-3">
-            <label for="selectroda" class="form-label fw-semibold">Mecânica:</label>
-            <select id="selectroda" class="form-select">
-              <option value="Original">Original</option>
-              <option value="Remap">Remap</option>
-              <option value="Kit turbo">Kit turbo</option>
-              <option value="Downpipes">Downpipes</option>
-              <option value="Intake">Intake</option>
+            <label for="selectDesempenho" class="form-label fw-semibold">Modificações de Desempenho:</label>
+            <select id="selectDesempenho" multiple>
+              <option value="Chip tuning / remapeamento da ECU">Chip tuning / remapeamento da ECU</option>
+              <option value="Filtro de ar esportivo">Filtro de ar esportivo</option>
+              <option value="Escapamento esportivo">Escapamento esportivo</option>
+              <option value="Turbo ou supercharger">Turbo ou supercharger</option>
+              <option value="Intercooler maior">Intercooler maior</option>
+              <option value="Freios maiores ou de competição">Freios maiores ou de competição</option>
             </select>
           </div>
 
+          <!-- Conforto -->
           <div class="mb-3">
-            <label for="selectroda" class="form-label fw-semibold">Interna:</label>
-            <select id="selectroda" class="form-select">
-              <option value="Original">Original</option>
-              <option value="Rebaixada">Bancos esportivos</option>
-              <option value="Ajustável">Butterfly</option>
-              <option value="Off-Road">Volante esportivo</option>
-              <option value="Multimidia">Multimídia</option>
-              <option value="Daidas de som extreme">Saidas de som extreme</option>
+            <label for="selectConforto" class="form-label fw-semibold">Modificações Internas e de Conforto:</label>
+            <select id="selectConforto" multiple>
+              <option value="Bancos esportivos">Bancos esportivos</option>
+              <option value="Volante esportivo">Volante esportivo</option>
+              <option value="Multimídia">Multimídia</option>
+              <option value="Sistema de som potente">Sistema de som potente</option>
+              <option value="Iluminação interna personalizada">Iluminação interna personalizada</option>
+              <option value="Isolamento acústico">Isolamento acústico</option>
             </select>
           </div>
 
-          <button id="btnSalvar" class="btn btn-primary">Ir para o carrinho</button>
+          <!-- Tecnológicas -->
+          <div class="mb-3">
+            <label for="selectTecnologia" class="form-label fw-semibold">Modificações Tecnológicas / Eletrônicas:</label>
+            <select id="selectTecnologia" multiple>
+              <option value="Central multimídia com GPS e Android Auto/Apple CarPlay">Central multimídia com GPS e Android Auto/Apple CarPlay</option>
+              <option value="Câmera de ré e sensores de estacionamento">Câmera de ré e sensores de estacionamento</option>
+              <option value="Sistema de ignição por botão (start/stop)">Sistema de ignição por botão (start/stop)</option>
+              <option value="Controle de tração ajustável ou launch control">Controle de tração ajustável ou launch control</option>
+              <option value="Iluminação automática e faróis adaptativos">Iluminação automática e faróis adaptativos</option>
+              <option value="Suspensão eletrônica ajustável">Suspensão eletrônica ajustável</option>
+            </select>
+          </div>
+
+          <!-- Outras -->
+          <div class="mb-3">
+            <label for="selectOutras" class="form-label fw-semibold">Outras Modificações:</label>
+            <select id="selectOutras" multiple>
+              <option value="Faróis e lanternas LED, xenon ou máscara negra">Faróis e lanternas LED, xenon ou máscara negra</option>
+              <option value="Capô, retrovisores ou detalhes em fibra de carbono">Capô, retrovisores ou detalhes em fibra de carbono</option>
+              <option value="Aerofólio ou asas traseiras">Aerofólio ou asas traseiras</option>
+              <option value="Vidros escurecidos (insulfilm)">Vidros escurecidos (insulfilm)</option>
+            </select>
+          </div>
+
+          <button id="btnSalvar" class="btn btn-primary w-100">Ir para o carrinho</button>
         </div>
       </div>
     </div>
   </div>
 
-
-
-<script>
-    // 🧠 Ao carregar a página
+  <script>
     window.onload = function () {
       const carro = JSON.parse(localStorage.getItem("carroSelecionado"));
       if (!carro) {
@@ -133,34 +146,53 @@
         return;
       }
 
-      // Mostra dados do carro
+      // Exibe dados do carro
       document.getElementById("carro-nome").innerText = carro.descricao;
       document.getElementById("carro-imagem").src = carro.imagem;
 
-      // Botão salvar
+      // Inicializa Choices.js
+      const selectsMultiplos = [
+        "selectDesempenho",
+        "selectConforto",
+        "selectTecnologia",
+        "selectOutras"
+      ];
+      selectsMultiplos.forEach(id => {
+        new Choices(`#${id}`, {
+          removeItemButton: true,
+          placeholderValue: "Selecione uma ou mais opções",
+          searchEnabled: false
+        });
+      });
+
+      // Botão salvar e redirecionar
       document.getElementById("btnSalvar").onclick = function () {
+        function getSelectedValues(selectId) {
+          const select = document.getElementById(selectId);
+          return Array.from(select.selectedOptions).map(opt => opt.value);
+        }
+
         const configuracao = {
           descricao: carro.descricao,
           imagem: carro.imagem,
           cor: document.getElementById("selectCor").value,
-          motor: document.getElementById("selectMotor").value,
-          suspensao: document.getElementById("selectSuspensao").value
+          suspensao: document.getElementById("selectSuspensao").value,
+          roda: document.getElementById("selectRoda").value,
+          bodykit: document.getElementById("selectBodykit").value,
+          desempenho: getSelectedValues("selectDesempenho"),
+          conforto: getSelectedValues("selectConforto"),
+          tecnologia: getSelectedValues("selectTecnologia"),
+          outras: getSelectedValues("selectOutras")
         };
 
-        // Salva no localStorage
         let configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
         configuracoes.push(configuracao);
         localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
 
-        alert(`✅ Configuração salva:
-Carro: ${configuracao.descricao}
-Cor: ${configuracao.cor}
-Motor: ${configuracao.motor}
-Suspensão: ${configuracao.suspensao}`);
+        // Redireciona para a página do carrinho
+        window.location.href = "../carrinho/index.html";
       };
     };
-
-    
   </script>
 </body>
 </html>

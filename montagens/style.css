@@ -11,3 +11,11 @@
 #bg-light{
         background-color: black;
     }
+
+.choices__list--multiple .choices__item {
+    background-color: #fd7e14 !important;
+    border: 1px solid #fd7e14 !important;
+    color: #fff !important;
+    font-weight: 500;
+  }
+
