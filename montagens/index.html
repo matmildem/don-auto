@@ -138,61 +138,87 @@
   </div>
 
   <script>
-    window.onload = function () {
-      const carro = JSON.parse(localStorage.getItem("carroSelecionado"));
-      if (!carro) {
-        alert("Nenhum carro selecionado. Voltando à página anterior...");
-        window.location.href = "../produtos/index.html";
-        return;
-      }
+  window.onload = function () {
+    const carro = JSON.parse(localStorage.getItem("carroSelecionado"));
+    if (!carro) {
+      alert("Nenhum carro selecionado. Voltando à página anterior...");
+      window.location.href = "../produtos/index.html";
+      return;
+    }
 
-      // Exibe dados do carro
-      document.getElementById("carro-nome").innerText = carro.descricao;
-      document.getElementById("carro-imagem").src = carro.imagem;
+    // 🔹 Elementos principais
+    const nomeElemento = document.getElementById("carro-nome");
+    const imagemElemento = document.getElementById("carro-imagem");
+    const selectCor = document.getElementById("selectCor");
+    const btnSalvar = document.getElementById("btnSalvar");
 
-      // Inicializa Choices.js
-      const selectsMultiplos = [
-        "selectDesempenho",
-        "selectConforto",
-        "selectTecnologia",
-        "selectOutras"
-      ];
-      selectsMultiplos.forEach(id => {
-        new Choices(`#${id}`, {
-          removeItemButton: true,
-          placeholderValue: "Selecione uma ou mais opções",
-          searchEnabled: false
-        });
+    // Exibe o nome e imagem padrão
+    nomeElemento.innerText = carro.descricao;
+    imagemElemento.src = carro.imagem;
+
+    // 🔹 Atualiza imagem ao mudar a cor
+    selectCor.addEventListener("change", function () {
+      const corSelecionada = selectCor.value.toLowerCase();
+
+      // Corrige casos especiais de nomes
+      const corNormalizada = corSelecionada
+        .replace("preto", "preta")
+        .replace("branco", "branca")
+        .replace("vermelho", "vermelha");
+
+      // Monta o caminho da nova imagem
+      const nomeArquivo = `${carro.descricao.toLowerCase()} ${corNormalizada}.jpg`;
+      const caminhoImagem = `./images/${nomeArquivo}`;
+
+      imagemElemento.src = caminhoImagem;
+    });
+
+    // 🔹 Inicializa Choices.js para selects múltiplos
+    const selectsMultiplos = [
+      "selectDesempenho",
+      "selectConforto",
+      "selectTecnologia",
+      "selectOutras"
+    ];
+    selectsMultiplos.forEach(id => {
+      new Choices(`#${id}`, {
+        removeItemButton: true,
+        placeholderValue: "Selecione uma ou mais opções",
+        searchEnabled: false
       });
+    });
 
-      // Botão salvar e redirecionar
-      document.getElementById("btnSalvar").onclick = function () {
-        function getSelectedValues(selectId) {
-          const select = document.getElementById(selectId);
-          return Array.from(select.selectedOptions).map(opt => opt.value);
-        }
+    // 🔹 Função auxiliar para pegar valores múltiplos
+    function getSelectedValues(selectId) {
+      const select = document.getElementById(selectId);
+      return Array.from(select.selectedOptions).map(opt => opt.value);
+    }
 
-        const configuracao = {
-          descricao: carro.descricao,
-          imagem: carro.imagem,
-          cor: document.getElementById("selectCor").value,
-          suspensao: document.getElementById("selectSuspensao").value,
-          roda: document.getElementById("selectRoda").value,
-          bodykit: document.getElementById("selectBodykit").value,
-          desempenho: getSelectedValues("selectDesempenho"),
-          conforto: getSelectedValues("selectConforto"),
-          tecnologia: getSelectedValues("selectTecnologia"),
-          outras: getSelectedValues("selectOutras")
-        };
-
-        let configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
-        configuracoes.push(configuracao);
-        localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
-
-        // Redireciona para a página do carrinho
-        window.location.href = "../carrinho/index.html";
+    // 🔹 Botão "Salvar"
+    btnSalvar.onclick = function () {
+      const configuracao = {
+        descricao: carro.descricao,
+        imagem: imagemElemento.src, // Usa a imagem atual (com cor escolhida)
+        cor: selectCor.value,
+        suspensao: document.getElementById("selectSuspensao").value,
+        roda: document.getElementById("selectRoda").value,
+        bodykit: document.getElementById("selectBodykit").value,
+        desempenho: getSelectedValues("selectDesempenho"),
+        conforto: getSelectedValues("selectConforto"),
+        tecnologia: getSelectedValues("selectTecnologia"),
+        outras: getSelectedValues("selectOutras")
       };
+
+      // Salva no localStorage
+      let configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
+      configuracoes.push(configuracao);
+      localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
+
+      // Redireciona para a página do carrinho
+      window.location.href = "../carrinho/index.html";
     };
-  </script>
+  };
+</script>
+
 </body>
 </html>
