@@ -41,7 +41,7 @@
             <h2>Histórico de Modificações</h2>
             <div class="wrap-cards">
                 <div class="card">
-                    <img width="150px" src="../montagens/images/mustang-vermelho.webp" src="" alt="Image card 1">
+                    <img width="150px" src="../montagens/images/mustangvermelho.webp" src="" alt="Image card 1">
                     <h3>Mustang</h3h3>
                     <p> <br>
                        - Vermelho <br>
@@ -52,18 +52,18 @@
                     </p>
                 </div>
                 <div class="card">
-                    <img width="150px" src="../montagens/images/m3-verde.webp" src="" alt="Image card 2">
+                    <img width="150px" src="../montagens/images/m3 verde.webp" src="" alt="Image card 2">
                     <h3>BMW M3</h3h3>
                     <p> <br>
                        - Verde <br>
                        - Suspensão Original <br>
                        - Rodas 20" (BBS) <br>
-                       - Body Kit (Veilside) <br>   
+                       - Body Kit (Veilside) <br>
                        ...
                     </p>
                 </div>
                 <div class="card">
-                    <img width="150px" src="../dados/images/civic-preto.png" src="" alt="Image card 3">
+                    <img width="150px" src="../dados/images/civic preto.png" src="" alt="Image card 3">
                     <h3>Civic</h3h3>
                    <p> <br>
                        - Preto <br>
