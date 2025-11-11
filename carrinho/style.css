@@ -1,134 +1,123 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+/* === Estilos gerais === */
+body {
+  background: #f5f6fa;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
 }
 
-#pedido{
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: green;
-    color: white;
-    font-size: 1.4rem;
-    width: auto;
+/* Container principal */
+.container {
+  max-width: 1200px;
 }
 
-.btn-word{
-    border: none;
-    background-color: transparent;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+/* Título */
+h2 {
+  font-weight: 700;
+  color: #222;
 }
 
-.btn-word img{
-    opacity: 0.7;
-    border-radius: 100%;
-    transition: all 200ms ease-in-out;
-}
-
-.btn-word img:hover{
-    opacity:1;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.454) 0px 5px 5px;
-}
-
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4vh;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #090909;
-    color: #fff;
-}
-
-h1{
-    font-weight: bolder;
-    letter-spacing: 7px;
-    font-size: 54px;
-}
-
-a{
-    width: 100%;
-    text-align: left;
-    padding-left: 20px;
-    color: inherit;
-    text-decoration: none;
-    opacity: 0.7;
-}
-
-a:hover{
-    opacity: 1;
-}
-
-#lista{
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    background-color: #dddddd2e;
-    padding: 20px;
-    border-radius: 20px;
-    border: 2px solid #fff;
-}
-
-#lista li{
-    display: flex;
-    flex-direction: row;
-    align-items: left;
-    justify-content: space-between;
-    border-bottom: 2px solid #fff;
-    padding: 12px;
-}
-
-#lista li:hover{
-    background-color: #ffffffa0;
-    color: #090909;
-}
-
-#lista button{
-    background-color: transparent;
-    border: none;
-    opacity: 0.7;
-}
-
-#lista button:hover{
-    cursor: pointer;
-    opacity: 1;
-    transform: scale(1.5);
-}
-
-.btn-voltar {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: #ff7b00; /* laranja vibrante */
-  color: white;
+/* === Cards de carros === */
+.card {
   border: none;
-  padding: 10px 25px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Imagem do carro */
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 3px solid #007bff;
+}
+
+/* Corpo do card */
+.card-body {
+  padding: 20px;
+}
+
+/* Título do carro */
+.card-title {
+  color: #111;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Texto das especificações */
+.card-body p {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+/* Botão de remover */
+.btn-outline-danger {
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+  box-shadow: 0 2px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* Botões superiores */
+.btn-outline-dark {
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn-danger {
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn-primary {
+  border-radius: 12px;
   font-weight: 600;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* garante que fique por cima de outros elementos */
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-.btn-voltar:hover {
-  background-color: #e66b00; /* laranja mais escuro */
-  transform: scale(1.05);
+.btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
 }
 
-.btn-voltar:active {
-  background-color: #cc5c00; /* ainda mais escuro */
-  transform: scale(0.98);
+/* === Carrinho vazio === */
+.text-center.py-5 {
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.text-muted {
+  font-size: 1.2rem;
+}
+
+/* === Responsividade === */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 180px;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
 }
