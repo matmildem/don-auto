@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const cardText = document.createElement("p");
         cardText.className = "card-text";
-        cardText.textContent = "Cv: " + produto.preco.toFixed(0);
 
         const btnDetalhes = document.createElement("button");
         btnDetalhes.className = "btn btn-outline-dark btn-sm btn-modificar";
