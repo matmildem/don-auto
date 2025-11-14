@@ -1,112 +1,110 @@
 [
-   {
+  {
     "descricao": "Camaro",
-    "imagem": "../imagens/camaro-preto.jpg",
+    "imagem": "../Dados/images/camaro-preto.jpg",
     "cavalos": 461,
     "preco": 595000
   },
-     {
+  {
     "descricao": "Civic G10",
-    "imagem": "../imagens/civic g10-preto.jpg",
+    "imagem": "../Dados/images/civic-preto.png",
     "cavalos": 173,
     "preco": 110000
   },
-     {
+  {
     "descricao": "Golf GTI",
-    "imagem": "../imagens/golf gti-preto.jpg",
+    "imagem": "../Dados/images/golf-preto.jpg",
     "cavalos": 245,
     "preco": 130000
   },
-     {
+  {
     "descricao": "HB20",
-    "imagem": "../imagens/hb20-preto.jpg",
+    "imagem": "../Dados/images/hb20-preto.jpg",
     "cavalos": 80,
     "preco": 119000
   },
   {
     "descricao": "Hilux",
-    "imagem": "../imagens/hilux-preto.jpg",
+    "imagem": "../Dados/images/hilux-preto.jpg",
     "cavalos": 204,
     "preco": 278790
   },
-     {
+  {
     "descricao": "Jetta GLI",
-    "imagem": "../imagens/jeta gli-preto.jpg",
+    "imagem": "../Dados/images/jetta-preto.jpg",
     "cavalos": 231,
     "preco": 269990
   },
-    {
+  {
     "descricao": "BMW M3",
-    "imagem": "../imagens/bmw m3-preto.jpg",
+    "imagem": "../Dados/images/m3-preto.jpg",
     "cavalos": 510,
     "preco": 892950
   },
-     {
+  {
     "descricao": "Audi A3",
-    "imagem": "../imagens/audi a3-preto.jpg",
+    "imagem": "../Dados/images/a3-preto.png",
     "cavalos": 150,
     "preco": 344990
   },
   {
     "descricao": "Corolla",
-    "imagem": "../imagens/corolla-preto.jpg",
+    "imagem": "../Dados/images/corolla-preto.jpg",
     "cavalos": 167,
     "preco": 171590
   },
-     {
+  {
     "descricao": "Dodge Challenger",
-    "imagem": "../imagens/dodge challenger-preto.jpg",
+    "imagem": "../Dados/images/dodge-preto.jpg",
     "cavalos": 1025,
     "preco": 1176000
   },
-     {
+  {
     "descricao": "Virtus",
-    "imagem": "../imagens/virtus-preto.jpg",
-    "cavalos": 461
-    ,
-    "preco": 595000
+    "imagem": "../Dados/images/virtus-preto.jpg",
+    "cavalos": 150,
+    "preco":  133737
   },
-     {
+  {
     "descricao": "BMW X4",
-    "imagem": "../imagens/bmw x4-preto.jpg",
-    "cavalos": 461
-    ,
-    "preco": 595000
+    "imagem": "../Dados/images/x4-preto.jpg",
+    "cavalos": 252,
+    "preco": 458950
   },
-    {
+  {
     "descricao": "Audi RS6",
-    "imagem": "../imagens/audi rs6-preto.jpg",
-    "cavalos": 510,
-    "preco": 699000
+    "imagem": "../Dados/images/rs6-preto.jpg",
+    "cavalos": 630,
+    "preco": 1225000
   },
-    {
+  {
     "descricao": "Onix",
-    "imagem": "../imagens/onix-preto.jpg",
-    "cavalos": 510,
-    "preco": 699000
+    "imagem": "../Dados/images/onix-preto.jpg",
+    "cavalos": 116,
+    "preco": 99990
   },
   {
     "descricao": "Porsche 911",
-    "imagem": "../imagens/porsche 911-preto.jpg",
-    "cavalos": 385,
-    "preco": 980000
-  }
-   {
+    "imagem": "../Dados/images/porsche-preto.jpg",
+    "cavalos": 650,
+    "preco": 1030000
+  },
+  {
     "descricao": "Mercedes CLA250",
-    "imagem": "../imagens/mercedes cla250-preto.jpg",
-    "cavalos": 483,
-    "preco": 429000
+    "imagem": "../Dados/images/cla-preto.jpg",
+    "cavalos": 224,
+    "preco": 524100
   },
-   {
+  {
     "descricao": "Fusion",
-    "imagem": "../imagens/fusion-preto.jpg",
-    "cavalos": 483,
-    "preco": 429000
+    "imagem": "../Dados/images/fusion-preto.jpg",
+    "cavalos": 248,
+    "preco": 130268
   },
-   {
+  {
     "descricao": "Mustang",
-    "imagem": "../imagens/mustang-preto.jpg",
-    "cavalos": 483,
-    "preco": 429000
-  },
+    "imagem": "../Dados/images/mustang-preto.jpg",
+    "cavalos": 507,
+    "preco": 600000
+  }
 ]
