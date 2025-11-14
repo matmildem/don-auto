@@ -12,8 +12,16 @@
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
   <link rel="stylesheet" href="./style.css">
+
+  <!-- 🔹 FUNDO CINZA -->
+  <style>
+    body {
+      background-color: #9b9b9b; /* fundo cinza */
+    }
+  </style>
 </head>
-<body class="bg-light">
+
+<body>
 
   <div class="container py-4">
     <button class="btn btn-outline-dark mb-3" onclick="window.location.href='../pagina principal/index.html'">
@@ -22,6 +30,7 @@
 
     <div class="card shadow p-3">
       <div class="row align-items-center">
+
         <!-- Imagem -->
         <div class="col-md-5 text-center">
           <img id="carro-imagem" class="img-fluid rounded" alt="Carro selecionado">
@@ -146,40 +155,35 @@
       return;
     }
 
-    // 🔹 Elementos principais
     const nomeElemento = document.getElementById("carro-nome");
     const imagemElemento = document.getElementById("carro-imagem");
     const selectCor = document.getElementById("selectCor");
     const btnSalvar = document.getElementById("btnSalvar");
 
-    // Exibe o nome e imagem padrão
     nomeElemento.innerText = carro.descricao;
     imagemElemento.src = carro.imagem;
 
-    // 🔹 Atualiza imagem ao mudar a cor
     selectCor.addEventListener("change", function () {
       const corSelecionada = selectCor.value.toLowerCase();
 
-      // Corrige casos especiais de nomes
       const corNormalizada = corSelecionada
         .replace("preta", "preto")
         .replace("branca", "branco")
         .replace("vermelha", "vermelho");
 
-      // Monta o caminho da nova imagem
       const nomeArquivo = `${carro.descricao.toLowerCase()}-${corNormalizada}.jpg`;
       const caminhoImagem = `./images/${nomeArquivo}`;
 
       imagemElemento.src = caminhoImagem;
     });
 
-    // 🔹 Inicializa Choices.js para selects múltiplos
     const selectsMultiplos = [
       "selectDesempenho",
       "selectConforto",
       "selectTecnologia",
       "selectOutras"
     ];
+
     selectsMultiplos.forEach(id => {
       new Choices(`#${id}`, {
         removeItemButton: true,
@@ -188,17 +192,15 @@
       });
     });
 
-    // 🔹 Função auxiliar para pegar valores múltiplos
     function getSelectedValues(selectId) {
       const select = document.getElementById(selectId);
       return Array.from(select.selectedOptions).map(opt => opt.value);
     }
 
-    // 🔹 Botão "Salvar"
     btnSalvar.onclick = function () {
       const configuracao = {
         descricao: carro.descricao,
-        imagem: imagemElemento.src, // Usa a imagem atual (com cor escolhida)
+        imagem: imagemElemento.src,
         cor: selectCor.value,
         suspensao: document.getElementById("selectSuspensao").value,
         roda: document.getElementById("selectRoda").value,
@@ -209,18 +211,15 @@
         outras: getSelectedValues("selectOutras")
       };
 
-      // Salva no localStorage
       let configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
       configuracoes.push(configuracao);
+
       localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
 
-      // Redireciona para a página do carrinho
       window.location.href = "../carrinho/index.html";
     };
   };
-</script>
+  </script>
 
 </body>
 </html>
-
-
