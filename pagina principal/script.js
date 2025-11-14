@@ -35,28 +35,41 @@ document.addEventListener("DOMContentLoaded", function () {
         btnDetalhes.addEventListener("click", function () {
           const produtoSelecionado = produtos[index];
 
-          // Preenche nome e imagem no modal
-          document.getElementById("modalCarName").innerText = produtoSelecionado.descricao;
-          document.getElementById("modalCarImage").src = produtoSelecionado.imagem;
+          // 👉 Carregar JSON de detalhes
+          fetch("../dados/detalhes/mock.json")
+            .then(res => res.json())
+            .then(detalhes => {
 
-          // 👉 Apenas no modal: cavalos e preço
-          document.getElementById("modalCarCavalos").innerHTML =
-            `<strong>Cavalos:</strong> ${produtoSelecionado.cavalos}`;
+              // buscar item pelo nome
+              const detalheItem = detalhes.find(
+                item => item.descricao === produtoSelecionado.descricao
+              );
 
-          document.getElementById("modalCarPreco").innerHTML =
-            `<strong>Preço:</strong> R$ ${produtoSelecionado.preco.toLocaleString('pt-BR')}`;
+              const item = detalheItem || produtoSelecionado;
 
-          // Salva no localStorage
-          localStorage.setItem("carroSelecionado", JSON.stringify(produtoSelecionado));
+              // Preenche nome e imagem no modal
+              document.getElementById("modalCarName").innerText = item.descricao;
+              document.getElementById("modalCarImage").src = item.imagem;
 
-          // Abre o modal
-          const modal = new bootstrap.Modal(document.getElementById("modalDetalhes"));
-          modal.show();
+              // 👉 AQUI ESTAVA O ERRO — agora corrigido com crases
+              document.getElementById("modalCarCavalos").innerHTML =
+                `<strong>Cavalos:</strong> ${item.cavalos}`;
 
-          document.getElementById("btnSalvarAlteracoes").onclick = function () {
-            modal.hide();
-            window.location.href = "../montagens/index.html";
-          };
+              document.getElementById("modalCarPreco").innerHTML =
+                `<strong>Preço:</strong> R$ ${item.preco.toLocaleString("pt-BR")}`;
+
+              // Salva no localStorage
+              localStorage.setItem("carroSelecionado", JSON.stringify(item));
+
+              // Abre o modal
+              const modal = new bootstrap.Modal(document.getElementById("modalDetalhes"));
+              modal.show();
+
+              document.getElementById("btnSalvarAlteracoes").onclick = function () {
+                modal.hide();
+                window.location.href = "../montagens/index.html";
+              };
+            });
         });
 
         cardBody.appendChild(cardTitle);

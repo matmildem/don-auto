@@ -1,32 +1,112 @@
 [
+   {
+    "descricao": "Camaro",
+    "imagem": "../imagens/camaro-preto.jpg",
+    "cavalos": 461,
+    "preco": 595000
+  },
+     {
+    "descricao": "Civic G10",
+    "imagem": "../imagens/civic g10-preto.jpg",
+    "cavalos": 173,
+    "preco": 110000
+  },
+     {
+    "descricao": "Golf GTI",
+    "imagem": "../imagens/golf gti-preto.jpg",
+    "cavalos": 245,
+    "preco": 130000
+  },
+     {
+    "descricao": "HB20",
+    "imagem": "../imagens/hb20-preto.jpg",
+    "cavalos": 80,
+    "preco": 119000
+  },
   {
-    "descricao": "Toyota Hilux",
-    "imagem": "../imagens/hilux.png",
+    "descricao": "Hilux",
+    "imagem": "../imagens/hilux-preto.jpg",
     "cavalos": 204,
-    "preco": 312000
+    "preco": 278790
+  },
+     {
+    "descricao": "Jetta GLI",
+    "imagem": "../imagens/jeta gli-preto.jpg",
+    "cavalos": 231,
+    "preco": 269990
+  },
+    {
+    "descricao": "BMW M3",
+    "imagem": "../imagens/bmw m3-preto.jpg",
+    "cavalos": 510,
+    "preco": 892950
+  },
+     {
+    "descricao": "Audi A3",
+    "imagem": "../imagens/audi a3-preto.jpg",
+    "cavalos": 150,
+    "preco": 344990
   },
   {
-    "descricao": "Corolla Cross",
-    "imagem": "../imagens/corolla-cross.png",
-    "cavalos": 177,
-    "preco": 158000
+    "descricao": "Corolla",
+    "imagem": "../imagens/corolla-preto.jpg",
+    "cavalos": 167,
+    "preco": 171590
   },
-  {
-    "descricao": "BMW M3 Competition",
-    "imagem": "../imagens/bmw-m3.png",
+     {
+    "descricao": "Dodge Challenger",
+    "imagem": "../imagens/dodge challenger-preto.jpg",
+    "cavalos": 1025,
+    "preco": 1176000
+  },
+     {
+    "descricao": "Virtus",
+    "imagem": "../imagens/virtus-preto.jpg",
+    "cavalos": 461
+    ,
+    "preco": 595000
+  },
+     {
+    "descricao": "BMW X4",
+    "imagem": "../imagens/bmw x4-preto.jpg",
+    "cavalos": 461
+    ,
+    "preco": 595000
+  },
+    {
+    "descricao": "Audi RS6",
+    "imagem": "../imagens/audi rs6-preto.jpg",
+    "cavalos": 510,
+    "preco": 699000
+  },
+    {
+    "descricao": "Onix",
+    "imagem": "../imagens/onix-preto.jpg",
     "cavalos": 510,
     "preco": 699000
   },
   {
-    "descricao": "Mustang GT",
-    "imagem": "../imagens/mustang-gt.png",
-    "cavalos": 483,
-    "preco": 429000
-  },
-  {
-    "descricao": "Porsche 911 Carrera",
-    "imagem": "../imagens/porsche-911.png",
+    "descricao": "Porsche 911",
+    "imagem": "../imagens/porsche 911-preto.jpg",
     "cavalos": 385,
     "preco": 980000
   }
+   {
+    "descricao": "Mercedes CLA250",
+    "imagem": "../imagens/mercedes cla250-preto.jpg",
+    "cavalos": 483,
+    "preco": 429000
+  },
+   {
+    "descricao": "Fusion",
+    "imagem": "../imagens/fusion-preto.jpg",
+    "cavalos": 483,
+    "preco": 429000
+  },
+   {
+    "descricao": "Mustang",
+    "imagem": "../imagens/mustang-preto.jpg",
+    "cavalos": 483,
+    "preco": 429000
+  },
 ]
