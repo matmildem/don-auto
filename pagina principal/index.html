@@ -21,48 +21,52 @@
     <div class="first">
         <i class="fa-solid fa-user" id="userIcon" onclick="window.location.href='../perfil/index.html'"></i>
         <h5 id="perfil"></h5>
-        
     </div>
-    <h1>DON AUTO MOTORS </h1>
-        <div class="wrap">
-            <div id="produtos-container" class="row center"></div>
-        </div>
 
+    <h1>DON AUTO MOTORS</h1>
 
+    <div class="wrap">
+        <div id="produtos-container" class="row center"></div>
+    </div>
 
-<!-- Modal Detalhes e Modificações -->
-<div class="modal fade" id="modalDetalhes" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalLabel">Detalhes</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-      </div>
-
-      <div class="modal-body">
-        <div class="row">
-          <!-- Coluna da imagem -->
-          <div class="col-md-5 text-center">
-            <img id="modalCarImage" src="" alt="Imagem do carro" class="img-fluid rounded shadow-sm">
+    <!-- Modal Detalhes -->
+    <div class="modal fade" id="modalDetalhes" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Detalhes</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
           </div>
 
-          <!-- Coluna dos detalhes -->
-          <div class="col-md-7">
-            <h4 id="modalCarName" class="fw-bold mb-3"></h4>
+          <div class="modal-body">
+            <div class="row">
+
+              <!-- Coluna da imagem -->
+              <div class="col-md-5 text-center">
+                <img id="modalCarImage" src="" alt="Imagem do carro" class="img-fluid rounded shadow-sm">
+              </div>
+
+              <!-- Coluna dos detalhes -->
+              <div class="col-md-7">
+                <h4 id="modalCarName" class="fw-bold mb-3"></h4>
+
+                <!-- 🟢 Onde aparecerá Cavalos e Preço -->
+                <p id="modalCarCavalos" class="fs-5 mb-2"></p>
+                <p id="modalCarPreco" class="fs-5 text-success fw-bold"></p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" id="btnSalvarAlteracoes">Modificar</button>
           </div>
         </div>
       </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" id="btnSalvarAlteracoes">Modificar</button>
-      </div>
     </div>
-  </div>
-</div>
 
-
-    <script src="script.js" ></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

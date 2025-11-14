@@ -1,0 +1,32 @@
+[
+  {
+    "descricao": "Toyota Hilux",
+    "imagem": "../imagens/hilux.png",
+    "cavalos": 204,
+    "preco": 312000
+  },
+  {
+    "descricao": "Corolla Cross",
+    "imagem": "../imagens/corolla-cross.png",
+    "cavalos": 177,
+    "preco": 158000
+  },
+  {
+    "descricao": "BMW M3 Competition",
+    "imagem": "../imagens/bmw-m3.png",
+    "cavalos": 510,
+    "preco": 699000
+  },
+  {
+    "descricao": "Mustang GT",
+    "imagem": "../imagens/mustang-gt.png",
+    "cavalos": 483,
+    "preco": 429000
+  },
+  {
+    "descricao": "Porsche 911 Carrera",
+    "imagem": "../imagens/porsche-911.png",
+    "cavalos": 385,
+    "preco": 980000
+  }
+]
