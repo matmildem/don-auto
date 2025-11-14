@@ -21,7 +21,6 @@
       color: #ff751f;
     }
 
-    /* ==== CARTÕES ==== */
     .card {
       border: none;
       border-radius: 20px;
@@ -59,7 +58,6 @@
       color: #555;
     }
 
-    /* ==== BOTÕES ==== */
     .btn-outline-danger {
       border-radius: 10px;
       font-weight: 500;
@@ -102,6 +100,9 @@
       transition: all 0.3s ease;
       background-color: #ff751f;
       border-color: #ff751f;
+       border-radius: 10px;
+      font-weight: 500;
+      transition: all 0.3s;
     }
 
     .btn-primary:hover {
@@ -111,7 +112,6 @@
       border-color: #ffffff;
     }
 
-    /* ==== TEXTO ==== */
     .text-center.py-5 {
       background: #fff;
       border-radius: 20px;
@@ -127,7 +127,6 @@
       color: #ff751f;
     }
 
-    /* ==== RESPONSIVIDADE ==== */
     @media (max-width: 768px) {
       .card-img-top {
         height: 180px;
@@ -140,7 +139,10 @@
       .btn-primary {
         width: 100%;
       }
-      .final{
+      
+
+      }
+      .btn-finalizar{
          border-radius: 12px;
       font-weight: 600;
       padding: 12px 24px;
@@ -149,6 +151,5 @@
       transition: all 0.3s ease;
       background-color: #ff751f;
       border-color: #ff751f;
-
-      }
     }
+    
