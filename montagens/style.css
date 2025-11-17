@@ -19,3 +19,22 @@
     font-weight: 500;
   }
 
+.btn-outline{
+     border-radius: 10px;
+    font-weight: 500;
+    background-color: #ff751f;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover{
+    background-color: #fff;
+    color: #ff751f;
+    box-shadow: 0 2px 10px rgba(255, 117, 31, 0.3);
+}
+
+body {
+      background-color: #000000; /* fundo cinza */
+    }
