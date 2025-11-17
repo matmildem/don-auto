@@ -10,28 +10,36 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
- 
   <link rel="stylesheet" href="./style.css">
 </head>
 <body id="bg-light">
 
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
+
       <button class="btn-outline-dark" onclick="window.location.href='../montagens/index.html'">← Voltar</button>
-      <h2 class="fw-bold">Seu Carrinho</h2>
-      <button id="btnLimpar" class="btn btn-danger">Limpar tudo</button>
-      <button class="btn-primary" onclick="window.location.href='../pagina principal/index.html'">
-        Montar mais carros
-      </button>
+
+      <h2 class="fw-bold m-0">Seu Carrinho</h2>
+
+      <div class="d-flex gap-2">
+        <button id="btnLimpar" class="btn btn-danger">Limpar tudo</button>
+
+        <button class="btn-primary" onclick="window.location.href='../pagina principal/index.html'">
+          Montar mais carros
+        </button>
+      </div>
     </div>
 
-    <div id="listaCarrinho" class="row gy-4">
- 
-    </div>
+    <div id="listaCarrinho" class="row gy-4"></div>
 
-    <div class="text-center mt-5">
-      
-      <a href="../pagamento/index.html"> <button class="btn-finalizar">Finalizar Compra</button></a>
+    <!-- VALOR TOTAL + FINALIZAR -->
+    <div class="d-flex justify-content-center align-items-center gap-4 mt-5" id="areaFinalizar" style="display:none;">
+
+      <h3 id="valorTotal" class="text-white fw-bold m-0"></h3>
+
+      <a href="../pagamento/index.html">
+        <button class="btn-finalizar">Finalizar Compra</button>
+      </a>
     </div>
   </div>
 
@@ -39,12 +47,16 @@
   window.onload = function () {
     const lista = document.getElementById("listaCarrinho");
     const btnLimpar = document.getElementById("btnLimpar");
+    const areaFinalizar = document.getElementById("areaFinalizar");
+    const valorTotalEl = document.getElementById("valorTotal");
 
     const configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
 
+    let total = 0;
+
     if (configuracoes.length === 0) {
       lista.innerHTML = `
-        <div class="text-center py-5">
+        <div class="text-center py-5" style="background:white; border-radius:12px;">
           <h4 class="text-muted">Seu carrinho está vazio 😢</h4>
           <p>Monte um carro e adicione aqui!</p>
         </div>
@@ -54,6 +66,8 @@
     }
 
     configuracoes.forEach((cfg, index) => {
+      if (cfg.preco) total += Number(cfg.preco);
+
       const col = document.createElement("div");
       col.className = "col-md-6 col-lg-4";
 
@@ -62,6 +76,7 @@
           <img src="${cfg.imagem || '../imagens/default.jpg'}" class="card-img-top" alt="${cfg.descricao}">
           <div class="card-body">
             <h5 class="card-title fw-bold">${cfg.descricao}</h5>
+
             <p><strong>Cor:</strong> ${cfg.cor}</p>
             <p><strong>Suspensão:</strong> ${cfg.suspensao}</p>
             <p><strong>Roda:</strong> ${cfg.roda}</p>
@@ -72,14 +87,23 @@
             ${cfg.tecnologia?.length ? `<p><strong>Tecnologia:</strong> ${cfg.tecnologia.join(", ")}</p>` : ""}
             ${cfg.outras?.length ? `<p><strong>Outras:</strong> ${cfg.outras.join(", ")}</p>` : ""}
 
+            <p class="mt-2"><strong>Preço:</strong> R$ ${cfg.preco ? Number(cfg.preco).toFixed(2) : "0.00"}</p>
+
             <button class="btn btn-outline-danger w-100 mt-2" onclick="removerCarro(${index})">
               Remover
             </button>
           </div>
         </div>
       `;
+
       lista.appendChild(col);
     });
+
+    // Exibir total
+    valorTotalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+
+    // Mostrar área de finalizar compra
+    areaFinalizar.style.display = "flex";
 
     btnLimpar.addEventListener("click", () => {
       if (confirm("Tem certeza que deseja limpar todo o carrinho?")) {

@@ -108,3 +108,10 @@
   justify-content: center;
   margin-top: 40px;
 }
+
+/* Deixar o card vazio em branco */
+#listaCarrinho .text-center.py-5 {
+    background-color: #ffffff !important;
+    border-radius: 12px;
+    padding: 40px;
+}

@@ -11,7 +11,10 @@
   <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  </head>
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
   <div class="container py-5">
@@ -19,6 +22,7 @@
       <h2>Finalizar Pagamento</h2>
 
       <form id="formPagamento">
+        
         <div class="mb-3">
           <label for="nomeTitular" class="form-label">Nome no Cartão</label>
           <input type="text" id="nomeTitular" class="form-control" placeholder="Ex: João Silva" required>
@@ -51,27 +55,43 @@
           </select>
         </div>
 
+        <!-- NOVO BLOCO: VALOR FINAL -->
+        <div class="valor-final-box mb-3">
+          <span>Valor Final:</span>
+          <strong id="valorFinal">R$ 0,00</strong>
+        </div>
+
         <button type="submit" class="btn-pagar">Pagar Agora</button>
         <button type="button" class="btn-voltar" onclick="window.location.href='../carrinho/index.html'">← Voltar ao Carrinho</button>
+
       </form>
     </div>
 
     <footer class="mt-5">
-      <p>© 2025 DA Montagem. Todos os direitos reservados.</p>
+      <p>© 2025 Don Auto. Todos os direitos reservados.</p>
     </footer>
   </div>
 
   <script>
+    // Exibir valor final vindo do carrinho
+    const valor = localStorage.getItem("valorFinal");
+
+    if (valor) {
+      document.getElementById("valorFinal").textContent = "R$ " + valor;
+    }
+
+    // Formulário de pagamento
     const form = document.getElementById("formPagamento");
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // Aqui você poderia integrar com uma API real de pagamento.
-      alert("Pagamento realizado com sucesso! 🚗💨");
+      alert("Pagamento realizado com sucesso! 💸");
 
-      // Limpa o carrinho e redireciona
+      // limpa carrinho
       localStorage.removeItem("configuracoesCarros");
+
+      // redireciona
       window.location.href = "../pagina%20principal/index.html";
     });
   </script>
