@@ -1,0 +1,51 @@
+[
+    {
+        "Tipo de Suspenção":{
+            "Rebaixada": 3000,
+            "Ajustável":4000, 
+            "Off-Road": 6000
+        },
+        "Roda":{
+            "Volk Racing": 3000,
+            "Enkei":4000, 
+            "BBS": 6000,
+            "Forgiato": 7000,
+            "Rotiform": 8000
+        },
+        "BodyKit":{
+            "Rebaixada": 3000,
+            "Ajustável":4000, 
+            "Off-Road": 6000
+        },
+        "Modificações de Desempenho":{
+            "Chip tuning / remapeamento da ECU": 3000,
+            "Filtro de ar esportivo":4000, 
+            "Escapamento esportivo": 6000,
+            "Turbo ou supercharger": 7000,
+            "Intercooler maior": 9000
+        },
+          "Modificações Internas e de Conforto":{
+            "Bancos esportivos": 3000,
+            "Volante esportivo":4000, 
+            "Multimídia": 6000,
+            "Sistema de som potente ": 7000,
+            "Iluminação interna personalizada": 8000,
+            "Isolamento acústico": 9000
+        },
+        "Modificações Tecnológicas/eletrônicas":{
+            "Central multimídia com GPS e Android Auto/Apple CarPlay": 3000,
+            "Câmera de ré e sensores de estacionamento":4000, 
+            "Sistema de ignição por botão (start/stop)": 6000,
+            "Controle de tração ajustável ou launch control": 7000,
+            "Iluminação automática e faróis adaptativos": 8000,
+            "Suspensão eletrônica ajustável": 9000
+        },
+        "Outras Modificações":{
+            "Faróis e lanternas LED, xenon ou máscara negra": 3000,
+            "Capô, retrovisores ou detalhes em fibra de carbono":4000, 
+            "Aerofólio ou asas traseiras": 6000,
+            "Vidros escurecidos (insulfilm)": 8000
+        },
+       
+    }
+]
