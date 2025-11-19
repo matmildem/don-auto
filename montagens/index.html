@@ -54,7 +54,7 @@
               <option value="Original">Original</option>
               <option value="Rebaixada">Rebaixada</option>
               <option value="Ajustável">Ajustável</option>
-              <option value="Off-Road">Off-Road</option>
+              <option value="OffRoad">OffRoad</option>
             </select>
           </div>
 
@@ -63,7 +63,7 @@
             <label for="selectRoda" class="form-label fw-semibold">Roda:</label>
             <select id="selectRoda" class="form-select">
               <option value="Original">Original</option>
-              <option value="Volk Racing">Volk Racing</option>
+              <option value="Volk_Racing">Volk_Racing</option>
               <option value="Enkei">Enkei</option>
               <option value="BBS">BBS</option>
               <option value="Forgiato">Forgiato</option>
@@ -77,8 +77,8 @@
             <select id="selectBodykit" class="form-select">
               <option value="Original">Original</option>
               <option value="Veilside">Veilside</option>
-              <option value="Rocket Bunny">Rocket Bunny</option>
-              <option value="Liberty Walk">Liberty Walk</option>
+              <option value="Rocket_Bunny">Rocket Bunny</option>
+              <option value="Liberty_Walk">Liberty Walk</option>
               <option value="Mansory">Mansory</option>
               <option value="Varis">Varis</option>
             </select>
@@ -88,12 +88,12 @@
           <div class="mb-3">
             <label for="selectDesempenho" class="form-label fw-semibold">Modificações de Desempenho:</label>
             <select id="selectDesempenho" multiple>
-              <option value="Chip tuning / remapeamento da ECU">Chip tuning / remapeamento da ECU</option>
-              <option value="Filtro de ar esportivo">Filtro de ar esportivo</option>
-              <option value="Escapamento esportivo">Escapamento esportivo</option>
-              <option value="Turbo ou supercharger">Turbo ou supercharger</option>
-              <option value="Intercooler maior">Intercooler maior</option>
-              <option value="Freios maiores ou de competição">Freios maiores ou de competição</option>
+              <option value="remap">Chip tuning / remapeamento da ECU</option>
+              <option value="filtro">Filtro de ar esportivo</option>
+              <option value="escapamento">Escapamento esportivo</option>
+              <option value="turbo">Turbo ou supercharger</option>
+              <option value="intercooler">Intercooler maior</option>
+              <option value="freios">Freios maiores ou de competição</option>
             </select>
           </div>
 
@@ -101,12 +101,11 @@
           <div class="mb-3">
             <label for="selectConforto" class="form-label fw-semibold">Modificações Internas e de Conforto:</label>
             <select id="selectConforto" multiple>
-              <option value="Bancos esportivos">Bancos esportivos</option>
-              <option value="Volante esportivo">Volante esportivo</option>
-              <option value="Multimídia">Multimídia</option>
-              <option value="Sistema de som potente">Sistema de som potente</option>
-              <option value="Iluminação interna personalizada">Iluminação interna personalizada</option>
-              <option value="Isolamento acústico">Isolamento acústico</option>
+              <option value="Bancos">Bancos esportivos</option>
+              <option value="Volante">Volante esportivo</option>
+              <option value="som">Sistema de som potente</option>
+              <option value="Iluminação">Iluminação interna personalizada</option>
+              <option value="Isolamento">Isolamento acústico</option>
             </select>
           </div>
 
@@ -114,12 +113,11 @@
           <div class="mb-3">
             <label for="selectTecnologia" class="form-label fw-semibold">Modificações Tecnológicas / Eletrônicas:</label>
             <select id="selectTecnologia" multiple>
-              <option value="Central multimídia com GPS e Android Auto/Apple CarPlay">Central multimídia com GPS e Android Auto/Apple CarPlay</option>
-              <option value="Câmera de ré e sensores de estacionamento">Câmera de ré e sensores de estacionamento</option>
-              <option value="Sistema de ignição por botão (start/stop)">Sistema de ignição por botão (start/stop)</option>
-              <option value="Controle de tração ajustável ou launch control">Controle de tração ajustável ou launch control</option>
-              <option value="Iluminação automática e faróis adaptativos">Iluminação automática e faróis adaptativos</option>
-              <option value="Suspensão eletrônica ajustável">Suspensão eletrônica ajustável</option>
+              <option value="multimídia">Central multimídia com GPS e Android Auto/Apple CarPlay</option>
+              <option value="Câmera">Câmera de ré e sensores de estacionamento</option>
+              <option value="ignição">Sistema de ignição por botão (start/stop)</option>
+              <option value="tração">Controle de tração ajustável ou launch control</option>
+              <option value="faróis">Iluminação automática e faróis adaptativos</option>
             </select>
           </div>
 
@@ -133,6 +131,9 @@
               <option value="Vidros escurecidos (insulfilm)">Vidros escurecidos (insulfilm)</option>
             </select>
           </div>
+        <div class="mb-3">
+          <h4 class="fw-bold">Preço total: <span id="precoTotal">R$ 0,00</span></h4>
+        </div>
 
           <button id="btnSalvar" class="btn btn-primary w-100">Ir para o carrinho</button>
         </div>
@@ -141,78 +142,192 @@
   </div>
 
   <script>
-  window.onload = function () {
-    const carro = JSON.parse(localStorage.getItem("carroSelecionado"));
-    if (!carro) {
-      alert("Nenhum carro selecionado. Voltando à página anterior...");
-      window.location.href = "../produtos/index.html";
-      return;
+ window.onload = function () {
+
+  const carro = JSON.parse(localStorage.getItem("carroSelecionado"));
+  if (!carro) {
+    alert("Nenhum carro selecionado. Voltando à página anterior...");
+    window.location.href = "../produtos/index.html";
+    return;
+  }
+
+  const nomeElemento = document.getElementById("carro-nome");
+  const imagemElemento = document.getElementById("carro-imagem");
+  const selectCor = document.getElementById("selectCor");
+  const btnSalvar = document.getElementById("btnSalvar");
+  const precoElemento = document.getElementById("precoTotal"); // <- precisa existir no HTML
+
+  nomeElemento.innerText = carro.descricao;
+  imagemElemento.src = carro.imagem;
+
+  // 🔥 PREÇOS DE CADA ITEM 🔥
+  const precos = {
+    cor: {
+      preto: 0,
+      branco: 0,
+      vermelho: 0
+    },
+    suspensao: {
+      original: 0,
+      Rebaixada: 1200,
+      Ajustável: 3500,
+      OffRoad: 5000
+    },
+    roda: {
+      original: 0,
+      Volk_Racing: 6990,
+      Enkei: 20290,
+      BBS: 5990,
+      Forgiato: 12990,
+      Rotiform: 18590
+    },
+    bodykit: {
+      nenhum: 0,
+      Veilside: 38500,
+      Rocket_Bunny: 13490,
+      Liberty_walk: 59490,
+      Mansory: 130490,
+      Varis: 58490
+    },
+    desempenho: {
+      turbo: 4000,
+      remap: 1500,
+      filtro: 200,
+      intercooler: 3790,
+      freios: 20000,
+      escapamento: 1650
+    },
+    conforto: {
+      Bancos: 4000,
+      som: 1600,
+      Iluminação: 200,
+      Volante: 300,
+      isolamento: 300
+    },
+    tecnologia: {
+      multimidia: 500,
+      Câmera: 2200,
+      sensores: 800
+    },
+    outras: {
+      adesivos: 100,
+      pelicula: 250,
+      aerofolio: 900
     }
-
-    const nomeElemento = document.getElementById("carro-nome");
-    const imagemElemento = document.getElementById("carro-imagem");
-    const selectCor = document.getElementById("selectCor");
-    const btnSalvar = document.getElementById("btnSalvar");
-
-    nomeElemento.innerText = carro.descricao;
-    imagemElemento.src = carro.imagem;
-
-    selectCor.addEventListener("change", function () {
-      const corSelecionada = selectCor.value.toLowerCase();
-
-      const corNormalizada = corSelecionada
-        .replace("preta", "preto")
-        .replace("branca", "branco")
-        .replace("vermelha", "vermelho");
-
-      const nomeArquivo = `${carro.descricao.toLowerCase()}-${corNormalizada}.jpg`;
-      const caminhoImagem = `./images/${nomeArquivo}`;
-
-      imagemElemento.src = caminhoImagem;
-    });
-
-    const selectsMultiplos = [
-      "selectDesempenho",
-      "selectConforto",
-      "selectTecnologia",
-      "selectOutras"
-    ];
-
-    selectsMultiplos.forEach(id => {
-      new Choices(`#${id}`, {
-        removeItemButton: true,
-        placeholderValue: "Selecione uma ou mais opções",
-        searchEnabled: false
-      });
-    });
-
-    function getSelectedValues(selectId) {
-      const select = document.getElementById(selectId);
-      return Array.from(select.selectedOptions).map(opt => opt.value);
-    }
-
-    btnSalvar.onclick = function () {
-      const configuracao = {
-        descricao: carro.descricao,
-        imagem: imagemElemento.src,
-        cor: selectCor.value,
-        suspensao: document.getElementById("selectSuspensao").value,
-        roda: document.getElementById("selectRoda").value,
-        bodykit: document.getElementById("selectBodykit").value,
-        desempenho: getSelectedValues("selectDesempenho"),
-        conforto: getSelectedValues("selectConforto"),
-        tecnologia: getSelectedValues("selectTecnologia"),
-        outras: getSelectedValues("selectOutras")
-      };
-
-      let configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
-      configuracoes.push(configuracao);
-
-      localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
-
-      window.location.href = "../carrinho/index.html";
-    };
   };
+
+  // Função para calcular preço total
+  function calcularPreco() {
+    let total = 0;
+
+    // Cor
+    const corSel = selectCor.value.toLowerCase();
+    if (precos.cor[corSel]) total += precos.cor[corSel];
+
+    // Suspensão
+    const susp = document.getElementById("selectSuspensao").value;
+    if (precos.suspensao[susp]) total += precos.suspensao[susp];
+
+    // Rodas
+    const roda = document.getElementById("selectRoda").value;
+    if (precos.roda[roda]) total += precos.roda[roda];
+
+    // Bodykit
+    const body = document.getElementById("selectBodykit").value;
+    if (precos.bodykit[body]) total += precos.bodykit[body];
+
+    // Múltiplos
+    function somaMultiplos(id, categoria) {
+      const select = document.getElementById(id);
+      Array.from(select.selectedOptions).forEach(opt => {
+        if (precos[categoria][opt.value]) {
+          total += precos[categoria][opt.value];
+        }
+      });
+    }
+
+    somaMultiplos("selectDesempenho", "desempenho");
+    somaMultiplos("selectConforto", "conforto");
+    somaMultiplos("selectTecnologia", "tecnologia");
+    somaMultiplos("selectOutras", "outras");
+
+    precoElemento.innerText = "R$ " + total.toLocaleString("pt-BR");
+
+    return total;
+  }
+
+  // Atualizar imagem ao trocar cor
+  selectCor.addEventListener("change", function () {
+    const corSelecionada = selectCor.value.toLowerCase();
+
+    const corNormalizada = corSelecionada
+      .replace("preta", "preto")
+      .replace("branca", "branco")
+      .replace("vermelha", "vermelho");
+
+    const nomeArquivo = `${carro.descricao.toLowerCase()}-${corNormalizada}.jpg`;
+    imagemElemento.src = `./images/${nomeArquivo}`;
+
+    calcularPreco();
+  });
+
+  // Choices.js
+  const selectsMultiplos = [
+    "selectDesempenho",
+    "selectConforto",
+    "selectTecnologia",
+    "selectOutras"
+  ];
+
+  selectsMultiplos.forEach(id => {
+    new Choices(`#${id}`, {
+      removeItemButton: true,
+      placeholderValue: "Selecione uma ou mais opções",
+      searchEnabled: false
+    });
+  });
+
+  function getSelectedValues(selectId) {
+    return Array.from(document.getElementById(selectId).selectedOptions)
+      .map(opt => opt.value);
+  }
+
+  // Atualizar preço sempre que algo mudar
+  document.querySelectorAll("select").forEach(select => {
+    select.addEventListener("change", calcularPreco);
+  });
+
+  // Salvar configuração final
+  btnSalvar.onclick = function () {
+    const configuracao = {
+      descricao: carro.descricao,
+      imagem: imagemElemento.src,
+      cor: selectCor.value,
+      suspensao: document.getElementById("selectSuspensao").value,
+      roda: document.getElementById("selectRoda").value,
+      bodykit: document.getElementById("selectBodykit").value,
+      desempenho: getSelectedValues("selectDesempenho"),
+      conforto: getSelectedValues("selectConforto"),
+      tecnologia: getSelectedValues("selectTecnologia"),
+      outras: getSelectedValues("selectOutras"),
+      precoTotal: calcularPreco() // 🔥 salva o valor final
+    };
+
+    let configuracoes =
+      JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
+
+    configuracoes.push(configuracao);
+
+    localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
+
+    window.location.href = "../carrinho/index.html";
+  };
+
+  calcularPreco(); // calcula preço inicial
+};
+
+    
+  
   </script>
 
 </body>
