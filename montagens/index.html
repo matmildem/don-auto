@@ -125,14 +125,14 @@
           <div class="mb-3">
             <label for="selectOutras" class="form-label fw-semibold">Outras Modificações:</label>
             <select id="selectOutras" multiple>
-              <option value="Faróis e lanternas LED, xenon ou máscara negra">Faróis e lanternas LED, xenon ou máscara negra</option>
-              <option value="Capô, retrovisores ou detalhes em fibra de carbono">Capô, retrovisores ou detalhes em fibra de carbono</option>
-              <option value="Aerofólio ou asas traseiras">Aerofólio ou asas traseiras</option>
-              <option value="Vidros escurecidos (insulfilm)">Vidros escurecidos (insulfilm)</option>
+              <option value="LED">Faróis e lanternas LED, xenon ou máscara negra</option>
+              <option value="carbono">Capô, retrovisores ou detalhes em fibra de carbono</option>
+              <option value="Aerofólio">Aerofólio ou asas traseiras</option>
+              <option value="insulfilm">Vidros escurecidos (insulfilm)</option>
             </select>
           </div>
         <div class="mb-3">
-          <h4 class="fw-bold">Preço total: <span id="precoTotal">R$ 0,00</span></h4>
+          <h4 class="fw-bold">Preço: <span id="precoTotal">R$ 0,00</span></h4>
         </div>
 
           <button id="btnSalvar" class="btn btn-primary w-100">Ir para o carrinho</button>
@@ -160,7 +160,6 @@
   nomeElemento.innerText = carro.descricao;
   imagemElemento.src = carro.imagem;
 
-  // 🔥 PREÇOS DE CADA ITEM 🔥
   const precos = {
     cor: {
       preto: 0,
@@ -206,13 +205,16 @@
     },
     tecnologia: {
       multimidia: 500,
-      Câmera: 2200,
-      sensores: 800
+      Câmera: 100,
+      tração: 200,
+      farois: 600,
+      ignição: 500
     },
     outras: {
-      adesivos: 100,
-      pelicula: 250,
-      aerofolio: 900
+      LED: 400,
+      carbono: 500,
+      insulfilm: 800,
+      aerofolio: 500
     }
   };
 
