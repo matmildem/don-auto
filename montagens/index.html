@@ -88,12 +88,12 @@
           <div class="mb-3">
             <label for="selectDesempenho" class="form-label fw-semibold">Modificações de Desempenho:</label>
             <select id="selectDesempenho" multiple>
-              <option value="remap">Chip tuning / remapeamento da ECU</option>
-              <option value="filtro">Filtro de ar esportivo</option>
-              <option value="escapamento">Escapamento esportivo</option>
-              <option value="turbo">Turbo ou supercharger</option>
-              <option value="intercooler">Intercooler maior</option>
-              <option value="freios">Freios maiores ou de competição</option>
+              <option value="remap">remap</option>
+              <option value="filtro">filtro</option>
+              <option value="escapamento">escapamento</option>
+              <option value="turbo">turbo</option>
+              <option value="intercooler">intercooler</option>
+              <option value="freios">freios</option>
             </select>
           </div>
 
@@ -101,11 +101,11 @@
           <div class="mb-3">
             <label for="selectConforto" class="form-label fw-semibold">Modificações Internas e de Conforto:</label>
             <select id="selectConforto" multiple>
-              <option value="Bancos">Bancos esportivos</option>
-              <option value="Volante">Volante esportivo</option>
-              <option value="som">Sistema de som potente</option>
-              <option value="Iluminação">Iluminação interna personalizada</option>
-              <option value="Isolamento">Isolamento acústico</option>
+              <option value="Bancos">Bancos</option>
+              <option value="Volante">Volante</option>
+              <option value="som">som</option>
+              <option value="Iluminação">Iluminação</option>
+              <option value="Isolamento">Isolamento</option>
             </select>
           </div>
 
@@ -113,11 +113,11 @@
           <div class="mb-3">
             <label for="selectTecnologia" class="form-label fw-semibold">Modificações Tecnológicas / Eletrônicas:</label>
             <select id="selectTecnologia" multiple>
-              <option value="multimídia">Central multimídia com GPS e Android Auto/Apple CarPlay</option>
-              <option value="Câmera">Câmera de ré e sensores de estacionamento</option>
-              <option value="ignição">Sistema de ignição por botão (start/stop)</option>
-              <option value="tração">Controle de tração ajustável ou launch control</option>
-              <option value="faróis">Iluminação automática e faróis adaptativos</option>
+              <option value="multimidia">multimidia</option>
+              <option value="Câmera">Câmera</option>
+              <option value="ignição">ignição</option>
+              <option value="tração">tração</option>
+              <option value="farois">farois</option>
             </select>
           </div>
 
@@ -125,10 +125,10 @@
           <div class="mb-3">
             <label for="selectOutras" class="form-label fw-semibold">Outras Modificações:</label>
             <select id="selectOutras" multiple>
-              <option value="LED">Faróis e lanternas LED, xenon ou máscara negra</option>
-              <option value="carbono">Capô, retrovisores ou detalhes em fibra de carbono</option>
-              <option value="Aerofólio">Aerofólio ou asas traseiras</option>
-              <option value="insulfilm">Vidros escurecidos (insulfilm)</option>
+              <option value="LED">LED</option>
+              <option value="carbono">carbono</option>
+              <option value="Aerofólio">Aerofólio</option>
+              <option value="insulfilm">insulfilm</option>
             </select>
           </div>
         <div class="mb-3">
@@ -160,33 +160,33 @@
   nomeElemento.innerText = carro.descricao;
   imagemElemento.src = carro.imagem;
 
+  // tabela de preços - chaves livres; iremos buscar com função que normaliza o valor selecionado
   const precos = {
+    // cor (todas zero por enquanto)
     cor: {
-      preto: 0,
-      branco: 0,
-      vermelho: 0
+      preto: 0, branco: 0, vermelho: 0, azul: 0, verde: 0, cinza: 0
     },
     suspensao: {
       original: 0,
-      Rebaixada: 1200,
-      Ajustável: 3500,
-      OffRoad: 5000
+      rebaixada: 1200,
+      ajustavel: 3500,
+      offroad: 5000
     },
     roda: {
       original: 0,
-      Volk_Racing: 6990,
-      Enkei: 20290,
-      BBS: 5990,
-      Forgiato: 12990,
-      Rotiform: 18590
+      volk_racing: 6990,
+      enkei: 20290,
+      bbs: 5990,
+      forgiato: 12990,
+      rotiform: 18590
     },
     bodykit: {
-      nenhum: 0,
-      Veilside: 38500,
-      Rocket_Bunny: 13490,
-      Liberty_walk: 59490,
-      Mansory: 130490,
-      Varis: 58490
+      original: 0,
+      veilside: 38500,
+      rocket_bunny: 13490,
+      liberty_walk: 59490,
+      mansory: 130490,
+      varis: 58490
     },
     desempenho: {
       turbo: 4000,
@@ -197,54 +197,89 @@
       escapamento: 1650
     },
     conforto: {
-      Bancos: 4000,
+      bancos: 4000,
       som: 1600,
-      Iluminação: 200,
-      Volante: 300,
+      iluminacao: 200,
+      volante: 300,
       isolamento: 300
     },
     tecnologia: {
       multimidia: 500,
-      Câmera: 100,
-      tração: 200,
+      camera: 100,
+      tracao: 200,
       farois: 600,
-      ignição: 500
+      igincao: 500  // fallback; we'll also check other normalized forms
     },
     outras: {
-      LED: 400,
+      led: 400,
       carbono: 500,
       insulfilm: 800,
       aerofolio: 500
     }
   };
 
-  // Função para calcular preço total
+  // normalize text: remove diacritics, lowercase, replace spaces and non-alnum with underscores
+  function normalizeKey(str) {
+    if (!str && str !== 0) return "";
+    return String(str)
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // remove accents
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+
+  function getPrice(categoria, valorSelecionado) {
+    const key = normalizeKey(valorSelecionado);
+    // try direct match first
+    if (precos[categoria] && typeof precos[categoria][key] !== "undefined") {
+      return Number(precos[categoria][key]);
+    }
+
+    // fallbacks for some specific known mismatches
+    if (categoria === 'tecnologia') {
+      // camera vs câmera etc
+      if (key === 'camera') return Number(precos.tecnologia.camera || 0);
+      if (key === 'camara') return Number(precos.tecnologia.camera || 0);
+      if (key === 'ignicao' || key === 'ignição' || key === 'igincao') return Number(precos.tecnologia.igincao || 0);
+      if (key === 'farois' || key === 'faróis') return Number(precos.tecnologia.farois || precos.tecnologia.farois || precos.tecnologia.farois || 0);
+    }
+
+    // if nothing found, try raw value as key (defensive)
+    if (precos[categoria] && typeof precos[categoria][valorSelecionado] !== "undefined") {
+      return Number(precos[categoria][valorSelecionado]);
+    }
+
+    return 0;
+  }
+
+  // Função para calcular preço total (inclui PREÇO BASE DO CARRO)
   function calcularPreco() {
     let total = 0;
 
+    // Começa com o preço base do carro
+    if (carro.preco) total += Number(carro.preco);
+
     // Cor
-    const corSel = selectCor.value.toLowerCase();
-    if (precos.cor[corSel]) total += precos.cor[corSel];
+    const corSel = selectCor.value;
+    total += getPrice('cor', corSel);
 
     // Suspensão
     const susp = document.getElementById("selectSuspensao").value;
-    if (precos.suspensao[susp]) total += precos.suspensao[susp];
+    total += getPrice('suspensao', susp);
 
     // Rodas
     const roda = document.getElementById("selectRoda").value;
-    if (precos.roda[roda]) total += precos.roda[roda];
+    total += getPrice('roda', roda);
 
     // Bodykit
     const body = document.getElementById("selectBodykit").value;
-    if (precos.bodykit[body]) total += precos.bodykit[body];
+    total += getPrice('bodykit', body);
 
     // Múltiplos
     function somaMultiplos(id, categoria) {
       const select = document.getElementById(id);
       Array.from(select.selectedOptions).forEach(opt => {
-        if (precos[categoria][opt.value]) {
-          total += precos[categoria][opt.value];
-        }
+        total += getPrice(categoria, opt.value);
       });
     }
 
@@ -312,7 +347,7 @@
       conforto: getSelectedValues("selectConforto"),
       tecnologia: getSelectedValues("selectTecnologia"),
       outras: getSelectedValues("selectOutras"),
-      precoTotal: calcularPreco() // 🔥 salva o valor final
+      precoTotal: calcularPreco() // salva o valor final (INCLUI PREÇO BASE)
     };
 
     let configuracoes =
