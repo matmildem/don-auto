@@ -32,13 +32,12 @@
 
     <div id="listaCarrinho" class="row gy-4"></div>
 
-    <!-- VALOR TOTAL + FINALIZAR -->
     <div class="d-flex justify-content-center align-items-center gap-4 mt-5" id="areaFinalizar" style="display:none;">
 
       <h3 id="valorTotal" class="text-white fw-bold m-0"></h3>
 
       <a href="../pagamento/index.html">
-        <button class="btn-finalizar">Finalizar Compra</button>
+        <button class="btn-finalizar btn btn-success">Finalizar Compra</button>
       </a>
     </div>
   </div>
@@ -52,8 +51,6 @@
 
     const configuracoes = JSON.parse(localStorage.getItem("configuracoesCarros")) || [];
 
-    let total = 0;
-
     if (configuracoes.length === 0) {
       lista.innerHTML = `
         <div class="text-center py-5" style="background:white; border-radius:12px;">
@@ -65,31 +62,41 @@
       return;
     }
 
+    let total = 0;
+
     configuracoes.forEach((cfg, index) => {
-      if (cfg.preco) total += Number(cfg.preco);
+
+      if (typeof cfg.precoTotal !== "undefined") {
+        total += Number(cfg.precoTotal);
+      } else if (typeof cfg.preco !== "undefined") {
+        total += Number(cfg.preco);
+      }
 
       const col = document.createElement("div");
       col.className = "col-md-6 col-lg-4";
 
       col.innerHTML = `
         <div class="card shadow-sm h-100">
-          <img src="${cfg.imagem || '../imagens/default.jpg'}" class="card-img-top" alt="${cfg.descricao}">
-          <div class="card-body">
+
+          <img src="${cfg.imagem || '../imagens/default.jpg'}" 
+               class="card-img-top" 
+               alt="${cfg.descricao}" 
+               style="height:180px; object-fit:contain; background:white;">
+
+          <div class="card-body d-flex flex-column">
             <h5 class="card-title fw-bold">${cfg.descricao}</h5>
 
-            <p><strong>Cor:</strong> ${cfg.cor}</p>
-            <p><strong>Suspensão:</strong> ${cfg.suspensao}</p>
-            <p><strong>Roda:</strong> ${cfg.roda}</p>
-            <p><strong>Bodykit:</strong> ${cfg.bodykit}</p>
+            <p class="mb-1"><strong>Cor:</strong> ${cfg.cor || "-"}</p>
+            <p class="mb-1"><strong>Suspensão:</strong> ${cfg.suspensao || "-"}</p>
+            <p class="mb-1"><strong>Roda:</strong> ${cfg.roda || "-"}</p>
+            <p class="mb-1"><strong>Bodykit:</strong> ${cfg.bodykit || "-"}</p>
 
-            ${cfg.desempenho?.length ? `<p><strong>Desempenho:</strong> ${cfg.desempenho.join(", ")}</p>` : ""}
-            ${cfg.conforto?.length ? `<p><strong>Conforto:</strong> ${cfg.conforto.join(", ")}</p>` : ""}
-            ${cfg.tecnologia?.length ? `<p><strong>Tecnologia:</strong> ${cfg.tecnologia.join(", ")}</p>` : ""}
-            ${cfg.outras?.length ? `<p><strong>Outras:</strong> ${cfg.outras.join(", ")}</p>` : ""}
+            ${cfg.desempenho?.length ? `<p class="mb-1"><strong>Desempenho:</strong> ${cfg.desempenho.join(", ")}</p>` : ""}
+            ${cfg.conforto?.length ? `<p class="mb-1"><strong>Conforto:</strong> ${cfg.conforto.join(", ")}</p>` : ""}
+            ${cfg.tecnologia?.length ? `<p class="mb-1"><strong>Tecnologia:</strong> ${cfg.tecnologia.join(", ")}</p>` : ""}
+            ${cfg.outras?.length ? `<p class="mb-1"><strong>Outras:</strong> ${cfg.outras.join(", ")}</p>` : ""}
 
-            <p class="mt-2"><strong>Preço:</strong> R$ ${cfg.preco ? Number(cfg.preco).toFixed(2) : "0.00"}</p>
-
-            <button class="btn btn-outline-danger w-100 mt-2" onclick="removerCarro(${index})">
+            <button class="btn btn-outline-danger w-100 mt-auto" onclick="removerCarro(${index})">
               Remover
             </button>
           </div>
@@ -99,10 +106,14 @@
       lista.appendChild(col);
     });
 
-    // Exibir total
-    valorTotalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+    valorTotalEl.textContent = `Total: R$ ${total.toLocaleString('pt-BR', { 
+      minimumFractionDigits: 2, 
+      maximumFractionDigits: 2 
+    })}`;
 
-    // Mostrar área de finalizar compra
+    /* SALVA O TOTAL PARA A PÁGINA DE PAGAMENTO */
+    localStorage.setItem("valorFinal", total.toFixed(2));
+
     areaFinalizar.style.display = "flex";
 
     btnLimpar.addEventListener("click", () => {
@@ -119,7 +130,7 @@
     localStorage.setItem("configuracoesCarros", JSON.stringify(configuracoes));
     window.location.reload();
   }
-  </script>
+</script>
 
 </body>
 </html>
